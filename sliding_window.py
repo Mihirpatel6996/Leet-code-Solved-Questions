@@ -5,8 +5,10 @@ max_sum = float('-inf')
 # for adding a char in dictoionary 
 
 freq = {}
-# Inline operation inside a loop or function
-freq[char] = freq.get(char, 0) + 1
+for ch in s:
+    freq[ch] = freq.get(ch, 0) + 1  # increase
+for ch in t:
+    freq[ch] = freq.get(ch, 0) - 1  # decrease
 
 
 
