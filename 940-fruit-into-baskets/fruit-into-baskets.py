@@ -1,23 +1,26 @@
 class Solution:
     def totalFruit(self, fruits: List[int]) -> int:
          # code here
-        left = 0
+        i =0 
+        j=0
         n = len(fruits)
         freq={}
         res = 0
         
-        for right in range (n):
-            tree = fruits[right]
-            freq[tree] = freq.get(tree,0)+1
+        while j < n :
+            freq[fruits[j]] = freq.get(fruits[j],0)+1
             
+            if len(freq) <= 2:
+                res = max(res, j-i+1)
+
             while (len(freq) > 2):
-                left_char = fruits[left]
-                freq[left_char] -= 1
-                if(freq[left_char] == 0):
-                    del freq[left_char]
-                left +=1
-        
-            res = max(res, right-left+1)
+                if(freq[fruits[i]] == 1):
+                    freq.pop(fruits[i])
+                else :
+                    freq[fruits[i]] -= 1
+
+                i +=1
+            j+=1   
         return res
 
         
