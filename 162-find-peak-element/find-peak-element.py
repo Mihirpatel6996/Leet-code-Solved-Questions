@@ -3,7 +3,6 @@ class Solution:
         start = 0
         size  = len(nums)
         end = size-1
-        arr=nums
 
         while start <= end:
             mid = start + (end-start)//2
@@ -17,7 +16,7 @@ class Solution:
             if nums[mid] > nums[mid-1] and nums[mid] > nums[mid+1]:
                 return mid
             
-            if arr[mid] < arr[mid+1]:
+            if nums[mid] < nums[mid+1]:
                 start = mid +1
             else:
                 end = mid-1
